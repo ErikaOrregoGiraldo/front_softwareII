@@ -4,7 +4,7 @@ import { RegistrarPacienteComponent } from './Features/registrar-paciente/infrae
 
 const routes: Routes = [
   {
-    path: 'registrarPaciente',
+    path: '',
     component: RegistrarPacienteComponent,
   },
 ];

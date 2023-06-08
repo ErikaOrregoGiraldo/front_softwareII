@@ -1,5 +1,11 @@
 .footer-toolbar {
+  display: flex;
+  justify-content: center;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #ffa4ff 0, #ec93ff 16.67%, #bd7fe0 33.33%, #8f68bb 50%,
+      #655195 66.67%, #423d73 83.33%, #262b55 100%);
 }
