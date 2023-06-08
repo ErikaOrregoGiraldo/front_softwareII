@@ -1,2 +1,30 @@
 <app-header></app-header>
+
+
+<div class="form-container">
+  <h2>Registrar paciente</h2>
+  <form [formGroup]="formulario" (ngSubmit)="sendForm()">
+    <div class="form-field">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="formulario.get('name')?.invalid && formulario.get('name')?.touched">
+        <div *ngIf="formulario.get('name')?.hasError('required')">El nombre es requerido</div>
+        <div *ngIf="formulario.get('name')?.hasError('minlength')">El nombre debe tener al menos 3 caracteres</div>
+      </div>
+    </div>
+
+    <div  class="form-field">
+      <label for="lastname">Apellidos:</label>
+      <input type="text" id="lastname" formControlName="lastname">
+      <div *ngIf="formulario.get('lastname')?.invalid && formulario.get('lastname')?.touched">
+        <div *ngIf="formulario.get('lastname')?.hasError('required')">El apellido es requerido</div>
+        <div *ngIf="formulario.get('lastname')?.hasError('minlength')">El apellido debe tener al menos 3 caracteres
+        </div>
+      </div>
+    </div>
+
+
+    <button class="submit-button" type="submit" [disabled]="formulario.invalid">Enviar</button>
+  </form>
+</div>
 <app-footer></app-footer>
