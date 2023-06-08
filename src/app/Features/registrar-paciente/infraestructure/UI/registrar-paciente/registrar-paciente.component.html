@@ -4,7 +4,7 @@
 <div class="form-container">
 
   <h2>Registrar paciente</h2>
-  <form [formGroup]="formulario" (ngSubmit)="sendForm()">
+  <form [formGroup]="formulario" (ngSubmit)="sendForm()" style="width: 80%;">
 
     <div class="patient-name">
 
@@ -22,131 +22,145 @@
         <input type="text" id="lastname" formControlName="lastname">
         <div *ngIf="formulario.get('lastname')?.invalid && formulario.get('lastname')?.touched">
           <div *ngIf="formulario.get('lastname')?.hasError('required')">El apellido es requerido</div>
-          <div *ngIf="formulario.get('lastname')?.hasError('minlength')">El apellido debe tener al menos 3 caracteres</div>
+          <div *ngIf="formulario.get('lastname')?.hasError('minlength')">El apellido debe tener al menos 3 caracteres
+          </div>
         </div>
       </div>
 
     </div>
 
-    <div class="form-field">
-      <label for="documentType">Tipo de documento:</label>
-      <input type="text" id="documentType" formControlName="documentType">
-      <div *ngIf="formulario.get('documentType')?.invalid && formulario.get('documentType')?.touched">
-        <div *ngIf="formulario.get('documentType')?.hasError('required')">El tipo de documento es requerido</div>
+    <div class="document">
+      <div class="form-field">
+        <label for="documentType">Tipo de documento:</label>
+        <input type="text" id="documentType" formControlName="documentType">
+        <div *ngIf="formulario.get('documentType')?.invalid && formulario.get('documentType')?.touched">
+          <div *ngIf="formulario.get('documentType')?.hasError('required')">El tipo de documento es requerido</div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="documentNumber"> Número de documento:</label>
+        <input type="text" id="documentNumber" formControlName="documentNumber">
+        <div *ngIf="formulario.get('documentNumber')?.invalid && formulario.get('documentNumber')?.touched">
+          <div *ngIf="formulario.get('documentNumber')?.hasError('required')">El número de documento es requerido</div>
+          <div *ngIf="formulario.get('documentNumber')?.hasError('minlength')">El número de documento debe tener al
+            menos 6 caracteres</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="date">
+      <div class="form-field">
+        <label for="birthDate">Fecha de nacimiento:</label>
+        <input type="text" id="birthDate" formControlName="birthDate">
+        <div *ngIf="formulario.get('birthDate')?.invalid && formulario.get('birthDate')?.touched">
+          <div *ngIf="formulario.get('birthDate')?.hasError('required')">La fecha de nacimiento es requerida</div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="age">Edad:</label>
+        <input type="text" id="age" formControlName="age">
+        <div *ngIf="formulario.get('age')?.invalid && formulario.get('age')?.touched">
+          <div *ngIf="formulario.get('age')?.hasError('required')">La edad es requerida</div>
+          <div *ngIf="formulario.get('age')?.hasError('minAge')">La edad no puede ser negativa</div>
+        </div>
       </div>
     </div>
 
-    <div class="form-field">
-      <label for="documentNumber"> Número de documento:</label>
-      <input type="text" id="documentNumber" formControlName="documentNumber">
-      <div *ngIf="formulario.get('documentNumber')?.invalid && formulario.get('documentNumber')?.touched">
-        <div *ngIf="formulario.get('documentNumber')?.hasError('required')">El número de documento es requerido</div>
-        <div *ngIf="formulario.get('documentNumber')?.hasError('minlength')">El número de documento debe tener al menos 6 caracteres</div>
+    <div class="center">
+      <div class="form-field">
+        <label for="email">Correo Electronico</label>
+        <input type="text" id="email" formControlName="email">
+      </div>
+
+      <div class="form-field">
+        <label for="phone">Número telefónico:</label>
+        <input type="text" id="phone" formControlName="phone">
+        <div *ngIf="formulario.get('phone')?.invalid && formulario.get('phone')?.touched">
+          <div *ngIf="formulario.get('phone')?.hasError('required')">El número telefónico es requerido</div>
+        </div>
       </div>
     </div>
 
-    <div class="form-field">
-      <label for="birthDate">Fecha de nacimiento:</label>
-      <input type="text" id="birthDate" formControlName="birthDate">
-      <div *ngIf="formulario.get('birthDate')?.invalid && formulario.get('birthDate')?.touched">
-        <div *ngIf="formulario.get('birthDate')?.hasError('required')">La fecha de nacimiento es requerida</div>
-      </div>
-    </div>
-
-    <div class="form-field">
-      <label for="age">Edad:</label>
-      <input type="text" id="age" formControlName="age">
-      <div *ngIf="formulario.get('age')?.invalid && formulario.get('age')?.touched">
-        <div *ngIf="formulario.get('age')?.hasError('required')">La edad es requerida</div>
-        <div *ngIf="formulario.get('age')?.hasError('minAge')">La edad no puede ser negativa</div>
-      </div>
-    </div>    
-
-    <div class="form-field">
-      <label for="email">Correo Electronico</label>
-      <input type="text" id="email" formControlName="email">
-    </div>
-
-    <div class="form-field">
-      <label for="phone">Número telefónico:</label>
-      <input type="text" id="phone" formControlName="phone">
-      <div *ngIf="formulario.get('phone')?.invalid && formulario.get('phone')?.touched">
-        <div *ngIf="formulario.get('phone')?.hasError('required')">El número telefónico es requerido</div>
-      </div>
-    </div>
-    
     <h2>Datos médicos</h2>
 
-    <div class="form-field">
-      <label for="bloodType">Tipo de Sangre:</label>
-      <input type="text" id="bloodType" formControlName="bloodType">
-      <div *ngIf="formulario.get('bloodType')?.invalid && formulario.get('bloodType')?.touched">
-        <div *ngIf="formulario.get('bloodType')?.hasError('required')">El tipo de sangre es requerido</div>
+    <div style="display: flex; align-items: center;">
+      <div class="basic">
+
+        <div class="form-field">
+          <label for="bloodType">Tipo de Sangre:</label>
+          <input type="text" id="bloodType" formControlName="bloodType">
+          <div *ngIf="formulario.get('bloodType')?.invalid && formulario.get('bloodType')?.touched">
+            <div *ngIf="formulario.get('bloodType')?.hasError('required')">El tipo de sangre es requerido</div>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="weight">Peso corporal:</label>
+          <input type="text" id="weight" formControlName="weight">
+          <div *ngIf="formulario.get('weight')?.invalid && formulario.get('weight')?.touched">
+            <div *ngIf="formulario.get('weight')?.hasError('required')">El peso es requerido</div>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="height">Altura:</label>
+          <input type="text" id="height" formControlName="height">
+          <div *ngIf="formulario.get('height')?.invalid && formulario.get('height')?.touched">
+            <div *ngIf="formulario.get('height')?.hasError('required')">Altura requerida</div>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="gender">Genero:</label>
+          <input type="text" id="gender" formControlName="gender">
+          <div *ngIf="formulario.get('gender')?.invalid && formulario.get('gender')?.touched">
+            <div *ngIf="formulario.get('gender')?.hasError('required')">El genero es requerido</div>
+          </div>
+        </div>
+
+        <div class="form-field row">
+          <label for="activity">¿Realiza alguna actividad física?:</label>
+          <input class="input" type="text" id="activity" formControlName="activity">
+        </div>
+
+        <div class="form-field row">
+          <label for="vaccine">¿Tiene las vacunas al día?:</label>
+          <input type="text" id="vaccine" formControlName="vaccine">
+        </div>
+
+        <div class="form-field row">
+          <label for="disability">¿Tiene alguna discapacidad?:</label>
+          <input class="input" type="text" id="disability" formControlName="disability">
+        </div>
+
+        <div class="form-field">
+          <label for="typeDisability">¿Cuál?:</label>
+          <input type="text" id="typeDisability" formControlName="typeDisability">
+        </div>
+
+        <div class="form-field row">
+          <label for="allergies">¿Sufre de alergias?:</label>
+          <input class="input" type="text" id="allergies" formControlName="allergies">
+        </div>
+
+        <div class="form-field">
+          <label for="allergiesType">¿Cúales?:</label>
+          <input type="text" id="allergiesType" formControlName="allergiesType">
+        </div>
+
+        <div class="form-field row">
+          <label for="medicines">¿Consume algún medicamento:</label>
+          <input class="input" type="text" id="medicines" formControlName="medicines">
+        </div>
+
+        <div class="form-field">
+          <label for="medicinesType">¿Cuál?:</label>
+          <input type="text" id="medicinesType" formControlName="medicinesType">
+        </div>
       </div>
-    </div>
-
-    <div class="form-field">
-      <label for="weight">Peso corporal:</label>
-      <input type="text" id="weight" formControlName="weight">
-      <div *ngIf="formulario.get('weight')?.invalid && formulario.get('weight')?.touched">
-        <div *ngIf="formulario.get('weight')?.hasError('required')">El peso es requerido</div>
-      </div>
-    </div>
-
-    <div class="form-field">
-      <label for="height">Altura:</label>
-      <input type="text" id="height" formControlName="height">
-      <div *ngIf="formulario.get('height')?.invalid && formulario.get('height')?.touched">
-        <div *ngIf="formulario.get('height')?.hasError('required')">Altura requerida</div>
-      </div>
-    </div>
-
-    <div class="form-field">
-      <label for="gender">Genero:</label>
-      <input type="text" id="gender" formControlName="gender">
-      <div *ngIf="formulario.get('gender')?.invalid && formulario.get('gender')?.touched">
-        <div *ngIf="formulario.get('gender')?.hasError('required')">El genero es requerido</div>
-      </div>
-    </div>
-
-    <div class="form-field">
-      <label for="activity">¿Realiza alguna actividad física?:</label>
-      <input type="text" id="activity" formControlName="activity">
-    </div>
-
-    <div class="form-field">
-      <label for="vaccine">¿Tiene las vacunas al día?:</label>
-      <input type="text" id="vaccine" formControlName="vaccine">
-    </div>
-
-    <div class="form-field">
-      <label for="disability">¿Tiene alguna discapacidad?:</label>
-      <input type="text" id="disability" formControlName="disability">
-    </div>
-
-    <div class="form-field">
-      <label for="typeDisability">¿Cuál?:</label>
-      <input type="text" id="typeDisability" formControlName="typeDisability">
-    </div>
-
-    <div class="form-field">
-      <label for="allergies">¿Sufre de alergias?:</label>
-      <input type="text" id="allergies" formControlName="allergies">
-    </div>
-
-    <div class="form-field">
-      <label for="allergiesType">¿Cúales?:</label>
-      <input type="text" id="allergiesType" formControlName="allergiesType">
-    </div>
-
-    <div class="form-field">
-      <label for="medicines">¿Consume algún medicamento:</label>
-      <input type="text" id="medicines" formControlName="medicines">
-    </div>
-
-    <div class="form-field">
-      <label for="medicinesType">¿Cuál?:</label>
-      <input type="text" id="medicinesType" formControlName="medicinesType">
     </div>
 
     <div class="button">
