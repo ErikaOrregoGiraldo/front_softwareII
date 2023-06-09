@@ -8,6 +8,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegistrarPacienteComponent } from './Features/registrar-paciente/infraestructure/UI/registrar-paciente/registrar-paciente.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//import { RegisterPatient } from './Features/registrar-paciente/infraestructure/repository/pacient.repository';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [/*RegisterPatient*/],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

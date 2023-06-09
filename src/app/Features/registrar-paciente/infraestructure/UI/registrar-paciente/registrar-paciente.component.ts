@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
-import { RegisterPatient } from '../../repository/pacient.repository';
+//import { RegisterPatient } from '../../repository/pacient.repository';
 import { DataResultModel } from '../../../domain/models/dataResult.model';
 import { HealthPersonnel } from '../../../domain/models/healthPersonnel';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-registrar-paciente',
@@ -14,14 +14,16 @@ export class RegistrarPacienteComponent implements OnInit {
   formulario!: FormGroup;
   healtPersonnelData: any;
 
-  constructor(private readonly registerPatient: RegisterPatient) {}
+  constructor(
+    //private readonly registerPatient: RegisterPatient
+    ) {}
 
   ngOnInit(): void {
     this.createForm(); 
-    this.getHealthPersonnel();
-    console.log(this.healtPersonnelData);
+   // this.getHealthPersonnel();
+    //console.log(this.healtPersonnelData);
   }
-
+/*
   private getHealthPersonnel(): void {
     this.registerPatient.getHealthPersonnel().subscribe({
       next: (respose: DataResultModel<HealthPersonnel>) => {
@@ -33,6 +35,7 @@ export class RegistrarPacienteComponent implements OnInit {
       }
     })
   }
+*/
 
   createForm() {
     this.formulario = new FormGroup({
